@@ -25,6 +25,19 @@ function noteDelete(id, noteArr) {
             noteArr.splice(i, 1);
 
             //write 
+            fs.writeFileSync(path.join(__dirname, 'Develop/db/db.json'),
+            JSON.stringify({notes: noteArr}, null, 2), err => {
+                if(err){
+                    throw err;
+                }
+            }
+            );
         }
     }
 }
+
+//export functions
+module.exports = {
+    noteCreate,
+    noteDelete
+};
