@@ -8,6 +8,10 @@ const app = express();
 const routesAPI = require('./routes/routesAPI');
 const routesHTML = require('./routes/routesHTML');
 
+//call the routes 
+app.use('/api', routesAPI);
+app.use('/', routesHTML);
+
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
