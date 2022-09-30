@@ -8,6 +8,10 @@ const app = express();
 const routesAPI = require('./routes/routesAPI');
 const routesHTML = require('./routes/routesHTML');
 
+app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
 
 //create app.listen
 app.listen(PORT, () => {
