@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 
 
+
 //create and delete note functions 
 function noteCreate(body, noteArr) {
     const noteNew = body; 
@@ -9,7 +10,9 @@ function noteCreate(body, noteArr) {
     noteArr.push(noteNew);
 
     //need to write new notes in db.json
-
+    fs.writeFileSync(path.join(__dirname, 'Develop/db/db.json'),
+    JSON.stringify({notes: noteArr}, null, 2));
+    return noteNew;
 }
 
 function noteDelete(id, noteArr) {
@@ -19,7 +22,9 @@ function noteDelete(id, noteArr) {
     for(var i = 0; i < noteArr.length; i++){
         //if statement to check if id is matched with any id in note array
         if(deleteNote === noteArr[i].id) {
-            
+            noteArr.splice(i, 1);
+
+            //write 
         }
     }
 }
