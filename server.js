@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 const express = require('express');
 const app = express();
 
@@ -17,5 +17,5 @@ app.use(express.json());
 
 //create app.listen
 app.listen(PORT, () => {
-    console.log(`Express server listening at http://localhost:${PORT}!`)
+    console.log(`Express server listening at http://localhost:${PORT}`)
 })
