@@ -3,6 +3,8 @@ const router = require('express').Router();
 const {noteCreate, noteDelete} = require('../../lib/notes')
 const notes = require('../../db/db.json')
 
+
+//  module.exports = router;
 const { v4: uuidv4 } = require('uuid');
 
 //get post and delete /notes
@@ -17,6 +19,7 @@ router.post('/notes', (req, res) => {
     const createdNote = noteCreate(req.body, notes);
     res.json(createdNote);
 })
+
 
 router.delete('/notes/:id', (req, res) => {
     noteDelete(notes, req.params.id);
